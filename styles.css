@@ -140,7 +140,7 @@ h2 {
 }
 .kontakt {
   width: 100%;
-  height: 300px;
+  height: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
