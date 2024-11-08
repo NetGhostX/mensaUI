@@ -1,587 +1,26 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mensa</title>
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <!-- Stylesheet -->
-  <style>
-    /* Variables */
-:root {
-  --primary-color: #0fa3b1;
-  --secondary-color: #ffeb3b;
-  --text-color: #333;
-  --background-color: #f8f9fa;
-}
-
-/* General Styles */
-* {
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  font-family: "Roboto", Arial, sans-serif;
-  color: var(--text-color);
-  background-color: var(--background-color);
-}
-
-/* Header & Navigation */
-header {
-  background: rgba(255, 255, 255, 0.95);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-
-.navbar {
-  min-height: 70px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 24px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.logo {
-  display: flex;
-  align-items: center;
-}
-
-.logo-link {
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  padding: 10px 0;
-  color: var(--primary-color);
-  font-size: 24px;
-  font-weight: 700;
-  transition: color 0.3s ease;
-}
-
-.logo-link i {
-  margin-right: 10px;
-  font-size: 28px;
-}
-
-.logo-link:hover {
-  color: var(--secondary-color);
-}
-
-.logo_image {
-  height: 50px;
-  width: auto;
-  transition: transform 0.3s ease;
-}
-
-.logo_image:hover {
-  transform: scale(1.05);
-}
-
-.nav-menu {
-  display: flex;
-  align-items: center;
-  gap: 60px;
-  list-style: none;
-  padding: 0;
-}
-
-.nav-link {
-  text-decoration: none;
-  color: var(--text-color);
-  font-weight: 500;
-  font-size: 1.1rem;
-  position: relative;
-  transition: 0.3s ease;
-}
-
-.nav-link i {
-  margin-right: 8px;
-  font-size: 16px;
-}
-
-.nav-link::after {
-  content: "";
-  position: absolute;
-  width: 0;
-  height: 2px;
-  bottom: -4px;
-  left: 0;
-  background-color: var(--primary-color);
-  transition: width 0.3s ease;
-}
-
-.nav-link:hover::after {
-  width: 100%;
-}
-
-.nav-link:hover {
-  color: var(--primary-color);
-}
-
-/* Hero Section */
-.hero {
-  margin: 20px;
-  padding: 40px;
-  border-radius: 40px;
-  background: url(./assets/food.jpg) no-repeat center/cover;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.hero_text h1 {
-  font-size: 60px;
-  color: #fff;
-  text-align: center;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-}
-
-/* Food Cards */
-.food-cards {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 30px;
-  padding: 20px;
-}
-
-.flip-card {
-  background-color: transparent;
-  width: 300px;
-  height: 400px;
-  perspective: 1000px;
-}
-
-.flip-card-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  border-radius: 15px;
-  text-align: center;
-  transition: transform 0.8s;
-  transform-style: preserve-3d;
-}
-
-.flip-card:hover .flip-card-inner {
-  transform: rotateY(180deg);
-}
-
-.flip-card-front,
-.flip-card-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
-  border-radius: 15px;
-  overflow: hidden;
-}
-
-.flip-card-front {
-  background-color: #fff;
-  display: flex;
-  flex-direction: column;
-}
-
-.flip-card-back {
-  background-color: #f8f9fa;
-  color: #333;
-  transform: rotateY(180deg);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 20px;
-}
-
-.food-Image {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-}
-
-.food-names {
-  margin: 10px 0;
-  font-size: 22px;
-  font-weight: bold;
-}
-
-.price {
-  font-size: 18px;
-  color: #777;
-}
-
-/* Buttons */
-.card-button,
-.form-button {
-  padding: 12px 20px;
-  background-color: var(--primary-color);
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-  transition: background-color 0.3s ease;
-  min-height: 44px;
-}
-
-.card-button:hover,
-.form-button:hover {
-  background-color: var(--secondary-color);
-  color: #000;
-}
-
-.card-button i,
-.form-button i {
-  margin-right: 5px;
-}
-
-/* Sections */
-.zahlen,
-.kontakt {
-  padding: 40px 20px;
-  text-align: center;
-}
-
-.zahlen {
-  background-color: #fff;
-}
-
-.kontakt {
-  background-color: #f1f1f1;
-}
-
-/* Forms */
-form {
-  max-width: 500px;
-  margin: 0 auto;
-  text-align: left;
-}
-
-label {
-  font-weight: bold;
-  font-size: 18px;
-}
-
-input[type="text"],
-input[type="email"],
-select {
-  width: 100%;
-  padding: 10px;
-  margin: 5px 0 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  min-height: 44px;
-  font-size: 16px;
-}
-
-/* Footer */
-footer {
-  background-color: var(--primary-color);
-  padding: 20px;
-  text-align: center;
-  color: #fff;
-}
-
-/* Mobile Navigation */
-.hamburger {
-  display: none;
-  cursor: pointer;
-}
-
-.bar {
-  display: block;
-  width: 25px;
-  height: 3px;
-  margin: 5px auto;
-  transition: all 0.3s ease-in-out;
-  background-color: var(--text-color);
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .hamburger {
-    display: block;
-  }
-
-  .hamburger.active .bar:nth-child(2) {
-    opacity: 0;
-  }
-
-  .hamburger.active .bar:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);
-  }
-
-  .hamburger.active .bar:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);
-  }
-
-  .nav-menu {
-    position: fixed;
-    left: -100%;
-    top: 70px;
-    gap: 0;
-    flex-direction: column;
-    background-color: white;
-    width: 100%;
-    text-align: center;
-    transition: 0.3s;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  }
-
-  .nav-menu.active {
-    left: 0;
-  }
-
-  .nav-item {
-    margin: 16px 0;
-  }
-
-  .logo-link {
-    font-size: 20px;
-  }
-
-  .logo-link i {
-    font-size: 24px;
-  }
-
-  .hero_text h1 {
-    font-size: 28px;
-  }
-
-  .hero {
-    margin: 10px;
-    padding: 20px;
-    border-radius: 20px;
-  }
-
-  .flip-card {
-    width: 100%;
-    max-width: 350px;
-    height: 350px;
-  }
-
-  .logo_image {
-    height: 40px;
-  }
-
-  form {
-    padding: 0 20px;
-  }
-}
-
-@media (max-width: 480px) {
-  .flip-card {
-    height: 300px;
-  }
-
-  .food-Image {
-    height: 150px;
-  }
-
-  .logo_image {
-    height: 35px;
-  }
-}
-
-/* Add to styles.css */
-.section-title {
-  text-align: center;
-  margin: 40px 0;
-}
-
-.section-title h2 {
-  font-size: 2.5rem;
-  color: var(--text-color);
-  position: relative;
-  display: inline-block;
-}
-
-.section-title h2::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  bottom: -10px;
-  transform: translateX(-50%);
-  width: 50%;
-  height: 3px;
-}
-
-/* Add these styles */
-.stats-section {
-  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-  padding: 60px 20px;
-}
-
-.stats-container {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.section-header {
-  text-align: center;
-  font-size: 2.5rem;
-  margin-bottom: 40px;
-  color: var(--primary-color);
-}
-
-.section-header i {
-  margin-right: 10px;
-}
-
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 30px;
-  text-align: center;
-}
-
-.stat-item {
-  background: white;
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
-}
-
-.stat-item:hover {
-  transform: translateY(-5px);
-}
-
-.stat-item i {
-  font-size: 2.5rem;
-  color: var(--primary-color);
-  margin-bottom: 15px;
-}
-
-.stat-number {
-  display: block;
-  font-size: 2.5rem;
-  font-weight: bold;
-  color: var(--text-color);
-}
-
-.stat-label {
-  font-size: 1.1rem;
-  color: #666;
-}
-
-.newsletter-section {
-  background: linear-gradient(135deg, var(--primary-color) 0%, #0d8995 100%);
-  padding: 60px 20px;
-  color: white;
-}
-
-.newsletter-container {
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.newsletter-content {
-  text-align: center;
-}
-
-.newsletter-description {
-  font-size: 1.2rem;
-  margin-bottom: 40px;
-}
-
-.newsletter-form {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  max-width: 500px;
-  margin: 0 auto;
-}
-
-.form-group {
-  position: relative;
-}
-
-.form-icon {
-  position: absolute;
-  left: 15px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: #666;
-}
-
-.newsletter-form input,
-.newsletter-form select {
-  width: 100%;
-  padding: 15px 45px;
-  border: none;
-  border-radius: 25px;
-  font-size: 1rem;
-  background: white;
-}
-
-.submit-button {
-  background: var(--secondary-color);
-  color: var(--text-color);
-  padding: 15px 30px;
-  border: none;
-  border-radius: 25px;
-  font-size: 1.1rem;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-}
-
-.submit-button:hover {
-  transform: translateY(-2px);
-}
-
-.submit-button i {
-  margin-right: 8px;
-}
-
-@media (max-width: 768px) {
-  .stats-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-
-  .section-header {
-    font-size: 2rem;
-  }
-
-  .newsletter-form {
-    padding: 0 20px;
-  }
-}
-  </style>
-  <!-- Add this in the head section of index.html -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <title>mensa</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<!-- Replace the existing header content in index.html with: -->
-<!-- Update the nav section in index.html -->
 <header>
-  <nav class="navbar">
-    <div class="logo">
-      <a href="#" class="logo-link">
-        <img src="https://www.studierendenwerk-aachen.de/files/layout/images/logo-studentenwerk.png" alt="Studierendenwerk Aachen Logo" class="logo_image">
-      </a>
-    </div>
-    <ul class="nav-menu">
-      <li class="nav-item"><a href="#" class="nav-link"><i class="fas fa-bullhorn"></i> Ankündigung</a></li>
-      <li class="nav-item"><a href="#" class="nav-link"><i class="fas fa-utensils"></i> Speisen</a></li>
-      <li class="nav-item"><a href="#" class="nav-link"><i class="fas fa-chart-bar"></i> Zahlen</a></li>
-      <li class="nav-item"><a href="#" class="nav-link"><i class="fas fa-envelope"></i> Kontakt</a></li>
-      <li class="nav-item"><a href="#" class="nav-link"><i class="fas fa-info-circle"></i> Wichtig für Uns</a></li>
-    </ul>
-    <div class="hamburger">
-      <span class="bar"></span>
-      <span class="bar"></span>
-      <span class="bar"></span>
-    </div>
-  </nav>
+  <div class="nav_bar">
+    <img src="https://www.studierendenwerk-aachen.de/files/layout/images/logo-studentenwerk.png" alt="" class="logo_image">
+    <nav class="naviList">
+      <ul class="list_items">
+        <li><a href="#">Ankündigung</a></li>
+        <li><a href="#">Speisen</a></li>
+        <li><a href="#">Zahlen</a></li>
+        <li><a href="#">Kontakt</a></li>
+        <li><a href="#">Wichtig für Uns</a></li>
+      </ul>
+    </nav>
+  </div>
 </header>
 <main>
   <div class="hero">
@@ -591,184 +30,60 @@ footer {
       </h1>
     </div>
   </div>
-  <div class="section-title">
-    <h2>Köstlichkeiten, die Sie erwarten</h2>
-  </div>
+  <h2>Köstlichkeiten, die Sie erwarten</h2>
   <div class="food-cards">
 
-    <!-- Card 1 -->
-    <div class="flip-card">
-      <div class="flip-card-inner">
-        <div class="flip-card-front">
-          <img src="https://images.pexels.com/photos/2313686/pexels-photo-2313686.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=150&w=250" alt="Rindfleisch mit Bambus" class="food-Image">
-          <h3 class="food-names">Rindfleisch mit Bambus</h3>
-          <span class="price">Preis intern: 2.90€ | Preis extern: 5.30€</span>
-        </div>
-        <div class="flip-card-back">
-          <p>Ein traditionelles Gericht mit zartem Rindfleisch und frischem Bambus.</p>
-          <button class="card-button"><i class="fas fa-info-circle"></i> Mehr erfahren</button>
-        </div>
-      </div>
+    <!--card 1-->
+    <div class="cards">
+      <img src="https://images.pexels.com/photos/2313686/pexels-photo-2313686.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=150&w=250" alt="bürger" class="food-Image">
+      <h3 class="food-names">Rindfleich mit Bambus</h3>
+      <span class="price"> Preis intern: 2.90 | Preis: extern: 5.30</span>
     </div>
 
-    <!-- Card 2 -->
-    <div class="flip-card">
-      <div class="flip-card-inner">
-        <div class="flip-card-front">
-          <img src="./assets/burger-with-melted-cheese.jpg" alt="Burger mit geschmolzenem Käse" class="food-Image">
-          <h3 class="food-names">Burger mit geschmolzenem Käse</h3>
-          <span class="price">Preis intern: 2.90€ | Preis extern: 5.30€</span>
-        </div>
-        <div class="flip-card-back">
-          <p>Saftiger Burger mit geschmolzenem Käse und frischen Beilagen.</p>
-          <button class="card-button"><i class="fas fa-info-circle"></i> Mehr erfahren</button>
-        </div>
-      </div>
+    <!--card 2-->
+    <div class="cards">
+      <img src="./assets/burger-with-melted-cheese.jpg" alt="bürger" class="food-Image">
+      <h3 class="food-names">Burger with melted cheese</h3>
+      <span class="price"> Preis intern: 2.90 | Preis: extern: 5.30</span>
     </div>
 
-    <!-- Card 3 -->
-    <div class="flip-card">
-      <div class="flip-card-inner">
-        <div class="flip-card-front">
-          <img src="./assets/grilled-crispy-pork-with-rice.jpg" alt="Gegrilltes knuspriges Schweinefleisch mit Reis" class="food-Image">
-          <h3 class="food-names">Gegrilltes knuspriges Schweinefleisch mit Reis</h3>
-          <span class="price">Preis intern: 2.90€ | Preis extern: 5.30€</span>
-        </div>
-        <div class="flip-card-back">
-          <p>Knuspriges Schweinefleisch serviert mit duftendem Reis.</p>
-          <button class="card-button"><i class="fas fa-info-circle"></i> Mehr erfahren</button>
-        </div>
-      </div>
+    <!--card 3-->
+    <div class="cards">
+      <img src="./assets/grilled-crispy-pork-with-rice.jpg" alt="bürger" class="food-Image">
+      <h3 class="food-names">Grilled crispy port with rise <br>
+      </h3>
+      <span class="price"> Preis intern: 2.90 | Preis: extern: 5.30</span>
     </div>
 
-    <!-- Card 4 -->
-    <div class="flip-card">
-      <div class="flip-card-inner">
-        <div class="flip-card-front">
-          <img src="./assets/tacos-on-a-wooden-plate.jpg" alt="Tacos auf einem Holzteller" class="food-Image">
-          <h3 class="food-names">Tacos auf einem Holzteller</h3>
-          <span class="price">Preis intern: 2.90€ | Preis extern: 5.30€</span>
-        </div>
-        <div class="flip-card-back">
-          <p>Frische Tacos mit Ihrer Wahl an Füllungen.</p>
-          <button class="card-button"><i class="fas fa-info-circle"></i> Mehr erfahren</button>
-        </div>
-      </div>
+    <!--card 4--> 
+    <div class="cards">
+      <img src="./assets/tacos-on-a-wooden-plate.jpg" alt="bürger" class="food-Image">
+      <h3 class="food-names">Tacos on a wooden plate</h3>
+      <span class="price"> Preis intern: 2.90 | Preis: extern: 5.30</span>
     </div>
-    
     
   </div>
 
-  <!-- Replace the zahlen and kontakt sections -->
-<section class="stats-section">
-  <div class="stats-container">
-    <h2 class="section-header">
-      <i class="fas fa-chart-line"></i>
-      E-Mensa in Zahlen
+  <div class="zahlen">
+    <h2 id="Zahler-Header">
+      E- Mensa in Zahlen
     </h2>
-    <div class="stats-grid">
-      <div class="stat-item">
-        <i class="fas fa-users"></i>
-        <span class="stat-number">X</span>
-        <span class="stat-label">Besuche</span>
-      </div>
-      <div class="stat-item">
-        <i class="fas fa-envelope-open-text"></i>
-        <span class="stat-number">Y</span>
-        <span class="stat-label">Newsletter</span>
-      </div>
-      <div class="stat-item">
-        <i class="fas fa-utensils"></i>
-        <span class="stat-number">Z</span>
-        <span class="stat-label">Speisen</span>
-      </div>
-    </div>
+    <p id="aboutZahlen">X besuche <span id="wrap-News">Y Anmeldungen zum Newsletter</span> Z Speisen</p>
   </div>
-</section>
 
-<section class="newsletter-section">
-  <div class="newsletter-container">
-    <div class="newsletter-content">
-      <h2 class="section-header">
-        <i class="fas fa-bell"></i>
-        Bleiben Sie informiert!
-      </h2>
-      <p class="newsletter-description">Melden Sie sich an und erhalten Sie die neuesten Updates zu unserem Menü und Sonderangeboten.</p>
-      <form class="newsletter-form">
-        <div class="form-group">
-          <i class="fas fa-user form-icon"></i>
-          <input type="text" id="name" name="name" placeholder="Ihr Name" required>
-        </div>
-        <div class="form-group">
-          <i class="fas fa-envelope form-icon"></i>
-          <input type="email" id="email" name="email" placeholder="Ihre E-Mail" required>
-        </div>
-        <div class="form-group">
-          <i class="fas fa-globe form-icon"></i>
-          <select id="language" name="language">
-            <option value="de">Deutsch</option>
-            <option value="en">Englisch</option>
-          </select>
-        </div>
-        <button type="submit" class="submit-button">
-          <i class="fas fa-paper-plane"></i>
-          Jetzt anmelden
-        </button>
-      </form>
-    </div>
+
+  <div class="kontakt">
+    <h2>Interesse geweckt ? Wir informieren Sie!</h2>
+    <form>
+      <label for="fname">Ihr Name:</label><br>
+      <input type="text" id="fname" name="fname"><br>
+      <label for="lname">Ihre Email:</label><br>
+      <input type="text" id="fname" name="fname"><br>
+      <label for="fname">Nachricht bitte in:</label><br>
+
+    </form>
   </div>
-</section>
 
 </main>
-<!-- Footer Section -->
-<footer>
-  <p>&copy; 2023 E-Mensa. Alle Rechte vorbehalten.</p>
-</footer>
-
-<!-- Add before closing body tag -->
-<script src="script.js">
-    // Add this JavaScript to handle mobile menu
-  // Create a new file: script.js and link it in your HTML
-  const hamburger = document.querySelector(".hamburger");
-  const navMenu = document.querySelector(".nav-menu");
-  
-  hamburger.addEventListener("click", () => {
-    hamburger.classList.toggle("active");
-    navMenu.classList.toggle("active");
-  });
-  
-  document.querySelectorAll(".nav-link").forEach(n => n.addEventListener("click", () => {
-    hamburger.classList.remove("active");
-    navMenu.classList.remove("active");
-  }));
-
-  // Handle Dark/Light Mode Toggle
-const themeToggle = document.getElementById('theme-toggle');
-const body = document.body;
-const toggleIcon = themeToggle.querySelector('i');
-
-// Check for saved user preference, if any, on load of the website
-if (localStorage.getItem('theme') === 'dark') {
-  body.classList.add('dark');
-  toggleIcon.classList.remove('fa-moon');
-  toggleIcon.classList.add('fa-sun');
-}
-
-// Toggle theme on button click
-themeToggle.addEventListener('click', () => {
-  body.classList.toggle('dark');
-
-  // Update icon
-  if (body.classList.contains('dark')) {
-    toggleIcon.classList.remove('fa-moon');
-    toggleIcon.classList.add('fa-sun');
-    localStorage.setItem('theme', 'dark');
-  } else {
-    toggleIcon.classList.remove('fa-sun');
-    toggleIcon.classList.add('fa-moon');
-    localStorage.setItem('theme', 'light');
-  }
-});
-</script>
 </body>
 </html>
