@@ -1,26 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>mensa</title>
+  <title>Mensa</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Stylesheet -->
   <link rel="stylesheet" href="styles.css">
+  <!-- Add this in the head section of index.html -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
+<!-- Replace the existing header content in index.html with: -->
+<!-- Update the nav section in index.html -->
 <header>
-  <div class="nav_bar">
-    <img src="https://www.studierendenwerk-aachen.de/files/layout/images/logo-studentenwerk.png" alt="" class="logo_image">
-    <nav class="naviList">
-      <ul class="list_items">
-        <li><a href="#">Ankündigung</a></li>
-        <li><a href="#">Speisen</a></li>
-        <li><a href="#">Zahlen</a></li>
-        <li><a href="#">Kontakt</a></li>
-        <li><a href="#">Wichtig für Uns</a></li>
-      </ul>
-    </nav>
-  </div>
+  <nav class="navbar">
+    <div class="logo">
+      <a href="#" class="logo-link">
+        <img src="https://www.studierendenwerk-aachen.de/files/layout/images/logo-studentenwerk.png" alt="Studierendenwerk Aachen Logo" class="logo_image">
+      </a>
+    </div>
+    <ul class="nav-menu">
+      <li class="nav-item"><a href="#" class="nav-link"><i class="fas fa-bullhorn"></i> Ankündigung</a></li>
+      <li class="nav-item"><a href="#" class="nav-link"><i class="fas fa-utensils"></i> Speisen</a></li>
+      <li class="nav-item"><a href="#" class="nav-link"><i class="fas fa-chart-bar"></i> Zahlen</a></li>
+      <li class="nav-item"><a href="#" class="nav-link"><i class="fas fa-envelope"></i> Kontakt</a></li>
+      <li class="nav-item"><a href="#" class="nav-link"><i class="fas fa-info-circle"></i> Wichtig für Uns</a></li>
+    </ul>
+    <div class="hamburger">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </div>
+  </nav>
 </header>
 <main>
   <div class="hero">
@@ -30,60 +46,184 @@
       </h1>
     </div>
   </div>
-  <h2>Köstlichkeiten, die Sie erwarten</h2>
+  <div class="section-title">
+    <h2>Köstlichkeiten, die Sie erwarten</h2>
+  </div>
   <div class="food-cards">
 
-    <!--card 1-->
-    <div class="cards">
-      <img src="https://images.pexels.com/photos/2313686/pexels-photo-2313686.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=150&w=250" alt="bürger" class="food-Image">
-      <h3 class="food-names">Rindfleich mit Bambus</h3>
-      <span class="price"> Preis intern: 2.90 | Preis: extern: 5.30</span>
+    <!-- Card 1 -->
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <img src="https://images.pexels.com/photos/2313686/pexels-photo-2313686.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=150&w=250" alt="Rindfleisch mit Bambus" class="food-Image">
+          <h3 class="food-names">Rindfleisch mit Bambus</h3>
+          <span class="price">Preis intern: 2.90€ | Preis extern: 5.30€</span>
+        </div>
+        <div class="flip-card-back">
+          <p>Ein traditionelles Gericht mit zartem Rindfleisch und frischem Bambus.</p>
+          <button class="card-button"><i class="fas fa-info-circle"></i> Mehr erfahren</button>
+        </div>
+      </div>
     </div>
 
-    <!--card 2-->
-    <div class="cards">
-      <img src="./assets/burger-with-melted-cheese.jpg" alt="bürger" class="food-Image">
-      <h3 class="food-names">Burger with melted cheese</h3>
-      <span class="price"> Preis intern: 2.90 | Preis: extern: 5.30</span>
+    <!-- Card 2 -->
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <img src="./assets/burger-with-melted-cheese.jpg" alt="Burger mit geschmolzenem Käse" class="food-Image">
+          <h3 class="food-names">Burger mit geschmolzenem Käse</h3>
+          <span class="price">Preis intern: 2.90€ | Preis extern: 5.30€</span>
+        </div>
+        <div class="flip-card-back">
+          <p>Saftiger Burger mit geschmolzenem Käse und frischen Beilagen.</p>
+          <button class="card-button"><i class="fas fa-info-circle"></i> Mehr erfahren</button>
+        </div>
+      </div>
     </div>
 
-    <!--card 3-->
-    <div class="cards">
-      <img src="./assets/grilled-crispy-pork-with-rice.jpg" alt="bürger" class="food-Image">
-      <h3 class="food-names">Grilled crispy port with rise <br>
-      </h3>
-      <span class="price"> Preis intern: 2.90 | Preis: extern: 5.30</span>
+    <!-- Card 3 -->
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <img src="./assets/grilled-crispy-pork-with-rice.jpg" alt="Gegrilltes knuspriges Schweinefleisch mit Reis" class="food-Image">
+          <h3 class="food-names">Gegrilltes knuspriges Schweinefleisch mit Reis</h3>
+          <span class="price">Preis intern: 2.90€ | Preis extern: 5.30€</span>
+        </div>
+        <div class="flip-card-back">
+          <p>Knuspriges Schweinefleisch serviert mit duftendem Reis.</p>
+          <button class="card-button"><i class="fas fa-info-circle"></i> Mehr erfahren</button>
+        </div>
+      </div>
     </div>
 
-    <!--card 4--> 
-    <div class="cards">
-      <img src="./assets/tacos-on-a-wooden-plate.jpg" alt="bürger" class="food-Image">
-      <h3 class="food-names">Tacos on a wooden plate</h3>
-      <span class="price"> Preis intern: 2.90 | Preis: extern: 5.30</span>
+    <!-- Card 4 -->
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <img src="./assets/tacos-on-a-wooden-plate.jpg" alt="Tacos auf einem Holzteller" class="food-Image">
+          <h3 class="food-names">Tacos auf einem Holzteller</h3>
+          <span class="price">Preis intern: 2.90€ | Preis extern: 5.30€</span>
+        </div>
+        <div class="flip-card-back">
+          <p>Frische Tacos mit Ihrer Wahl an Füllungen.</p>
+          <button class="card-button"><i class="fas fa-info-circle"></i> Mehr erfahren</button>
+        </div>
+      </div>
     </div>
+    
     
   </div>
 
-  <div class="zahlen">
-    <h2 id="Zahler-Header">
-      E- Mensa in Zahlen
+  <!-- Replace the zahlen and kontakt sections -->
+<section class="stats-section">
+  <div class="stats-container">
+    <h2 class="section-header">
+      <i class="fas fa-chart-line"></i>
+      E-Mensa in Zahlen
     </h2>
-    <p id="aboutZahlen">X besuche <span id="wrap-News">Y Anmeldungen zum Newsletter</span> Z Speisen</p>
+    <div class="stats-grid">
+      <div class="stat-item">
+        <i class="fas fa-users"></i>
+        <span class="stat-number">X</span>
+        <span class="stat-label">Besuche</span>
+      </div>
+      <div class="stat-item">
+        <i class="fas fa-envelope-open-text"></i>
+        <span class="stat-number">Y</span>
+        <span class="stat-label">Newsletter</span>
+      </div>
+      <div class="stat-item">
+        <i class="fas fa-utensils"></i>
+        <span class="stat-number">Z</span>
+        <span class="stat-label">Speisen</span>
+      </div>
+    </div>
   </div>
+</section>
 
-
-  <div class="kontakt">
-    <h2>Interesse geweckt ? Wir informieren Sie!</h2>
-    <form>
-      <label for="fname">Ihr Name:</label><br>
-      <input type="text" id="fname" name="fname"><br>
-      <label for="lname">Ihre Email:</label><br>
-      <input type="text" id="fname" name="fname"><br>
-      <label for="fname">Nachricht bitte in:</label><br>
-
-    </form>
+<section class="newsletter-section">
+  <div class="newsletter-container">
+    <div class="newsletter-content">
+      <h2 class="section-header">
+        <i class="fas fa-bell"></i>
+        Bleiben Sie informiert!
+      </h2>
+      <p class="newsletter-description">Melden Sie sich an und erhalten Sie die neuesten Updates zu unserem Menü und Sonderangeboten.</p>
+      <form class="newsletter-form">
+        <div class="form-group">
+          <i class="fas fa-user form-icon"></i>
+          <input type="text" id="name" name="name" placeholder="Ihr Name" required>
+        </div>
+        <div class="form-group">
+          <i class="fas fa-envelope form-icon"></i>
+          <input type="email" id="email" name="email" placeholder="Ihre E-Mail" required>
+        </div>
+        <div class="form-group">
+          <i class="fas fa-globe form-icon"></i>
+          <select id="language" name="language">
+            <option value="de">Deutsch</option>
+            <option value="en">Englisch</option>
+          </select>
+        </div>
+        <button type="submit" class="submit-button">
+          <i class="fas fa-paper-plane"></i>
+          Jetzt anmelden
+        </button>
+      </form>
+    </div>
   </div>
+</section>
 
 </main>
+<!-- Footer Section -->
+<footer>
+  <p>&copy; 2023 E-Mensa. Alle Rechte vorbehalten.</p>
+</footer>
+
+<!-- Add before closing body tag -->
+<script src="script.js">
+    // Add this JavaScript to handle mobile menu
+  // Create a new file: script.js and link it in your HTML
+  const hamburger = document.querySelector(".hamburger");
+  const navMenu = document.querySelector(".nav-menu");
+  
+  hamburger.addEventListener("click", () => {
+    hamburger.classList.toggle("active");
+    navMenu.classList.toggle("active");
+  });
+  
+  document.querySelectorAll(".nav-link").forEach(n => n.addEventListener("click", () => {
+    hamburger.classList.remove("active");
+    navMenu.classList.remove("active");
+  }));
+
+  // Handle Dark/Light Mode Toggle
+const themeToggle = document.getElementById('theme-toggle');
+const body = document.body;
+const toggleIcon = themeToggle.querySelector('i');
+
+// Check for saved user preference, if any, on load of the website
+if (localStorage.getItem('theme') === 'dark') {
+  body.classList.add('dark');
+  toggleIcon.classList.remove('fa-moon');
+  toggleIcon.classList.add('fa-sun');
+}
+
+// Toggle theme on button click
+themeToggle.addEventListener('click', () => {
+  body.classList.toggle('dark');
+
+  // Update icon
+  if (body.classList.contains('dark')) {
+    toggleIcon.classList.remove('fa-moon');
+    toggleIcon.classList.add('fa-sun');
+    localStorage.setItem('theme', 'dark');
+  } else {
+    toggleIcon.classList.remove('fa-sun');
+    toggleIcon.classList.add('fa-moon');
+    localStorage.setItem('theme', 'light');
+  }
+});
+</script>
 </body>
 </html>
